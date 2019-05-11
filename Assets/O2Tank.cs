@@ -12,7 +12,7 @@ public class O2Tank : MonoBehaviour
     }
 
     [SerializeField]
-    private float initialO2 = 100;
+    private float initialO2 = 10;
     private float currentO2;
     private float startTime;
 
@@ -21,7 +21,11 @@ public class O2Tank : MonoBehaviour
     }
 
     void FixedUpdate () {
-        float o2ToSubtract = Time.deltaTime;
-        currentO2 -= o2ToSubtract;
+        if(currentO2 > 0){
+            float o2ToSubtract = Time.deltaTime;
+            currentO2 -= o2ToSubtract;
+        } else {
+            currentO2 = 0;
+        }
     }
 }

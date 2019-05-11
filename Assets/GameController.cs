@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class GameController : MonoBehaviour
     }
 
     void Update () {
-      
+        for (int i = 0; i < players.Length; i++){
+            if(players[i].IsDead){
+                SceneManager.LoadScene(0);
+            }
+        }
     }
 }
