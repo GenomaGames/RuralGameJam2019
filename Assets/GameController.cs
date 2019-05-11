@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     private PlayerManager playerManager;
+    private HUDController hudController;
     private PlayerController[] players;
+    private bool isGameEnded = false;
 
     void Awake () {
         playerManager = FindObjectOfType<PlayerManager>();
+        hudController = FindObjectOfType<HUDController>();
     }
     
     void Start () {
@@ -17,10 +20,17 @@ public class GameController : MonoBehaviour
     }
 
     void Update () {
-        for (int i = 0; i < players.Length; i++){
-            if(players[i].IsDead){
-                SceneManager.LoadScene(0);
+        if (isGameEnded) return;
+
+        for (int i = 0; i < players.Length; i++) {
+            if (players[i].IsDead) {
+                hudController.ShowWinScreen(i == 1 ? "1" : "2");
+                isGameEnded = true;
             }
         }
+    }
+
+    public void RestartGame () {
+        SceneManager.LoadScene(0);
     }
 }
