@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class InputController : MonoBehaviour
+public class ScoreController : MonoBehaviour
 {
     private PlayerManager playerManager;
-
     private PlayerController[] players;
+
+    public Text[] scoreTexts;
 
     void Awake () {
         playerManager = FindObjectOfType<PlayerManager>();
@@ -19,12 +21,8 @@ public class InputController : MonoBehaviour
     void Update () {
         for (int i = 0; i < players.Length; i++)
         {
-            HandlePlayerInputs(i + 1, players[i]);
-        }
-    }
+            if (scoreTexts[i]) scoreTexts[i].text = players[i].Score.ToString();
 
-    void HandlePlayerInputs (int playerNum, PlayerController player) {
-        player.Rotate(Input.GetAxis("Player " + playerNum + " Horizontal"));
-        player.Propel(Input.GetButton("Player " + playerNum + " Propel"));
+        }
     }
 }
