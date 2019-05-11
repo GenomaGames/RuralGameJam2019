@@ -19,6 +19,7 @@ public class InputController : MonoBehaviour
     void Update () {
         for (int i = 0; i < players.Length; i++)
         {
+            if(players[i].IsDead) continue;
             HandlePlayerInputs(i + 1, players[i]);
         }
     }
