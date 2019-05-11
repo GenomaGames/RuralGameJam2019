@@ -24,6 +24,6 @@ public class BubbleController : MonoBehaviour
     }
 
     public void Die () {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
