@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Motor))]
 [RequireComponent(typeof(Rotor))]
+[RequireComponent(typeof(O2Tank))]
 public class PlayerController : MonoBehaviour
 {
     public bool IsDead {
@@ -33,5 +34,9 @@ public class PlayerController : MonoBehaviour
 
     public void Rotate (float rotation) {
         rotor.rotation = rotation;
+    }
+
+    public void Refill (float amount) {
+        o2tank.AddO2(amount);
     }
 }
