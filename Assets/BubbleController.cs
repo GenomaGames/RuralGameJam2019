@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    public float O2Amount {
+        get {
+            return o2Amount;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField]
+    private float o2Amount = 1;
+
+    void OnCollisionEnter2D (Collision2D other) {
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
+        if (player != null && !player.IsDead) {
+            player.Refill(o2Amount);
+            Die();
+        }
+    }
+
+    public void Die () {
+        Destroy(this);
     }
 }
