@@ -11,9 +11,13 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField]
     private float randomTimeMax = 5f;
     private Collider2D collider2D;
+    private AudioSource audioSource;
+
+    public AudioClip[] spawnSounds;
 
     void Awake(){
         collider2D = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start(){
@@ -32,5 +36,7 @@ public class BubbleSpawner : MonoBehaviour
         float origin = Random.Range(collider2D.bounds.min.x, collider2D.bounds.max.x);
         Vector2 position = new Vector2(origin, collider2D.transform.position.y);
         Instantiate(bubblePrefab, position, Quaternion.identity, transform);
+        int i = Random.Range(0, spawnSounds.Length - 1);
+        audioSource.PlayOneShot(spawnSounds[i]);
     }
 }
