@@ -28,4 +28,8 @@ public class O2Tank : MonoBehaviour
             currentO2 = 0;
         }
     }
+
+    public void AddO2 (float amount) {
+        currentO2 += amount;
+    }
 }
