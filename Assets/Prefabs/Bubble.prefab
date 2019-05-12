@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 4187418681695268365}
   - component: {fileID: 1832636180729570467}
   - component: {fileID: 4232206591285790874}
+  - component: {fileID: 8081624011460711514}
   m_Layer: 8
   m_Name: Bubble
   m_TagString: Untagged
@@ -162,3 +163,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857728b4edbf94684b5033f5e8d178cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  o2Amount: 1
+--- !u!114 &8081624011460711514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7336696697184085066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b71a9389cf50449aa6aad7d2c1b9e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: 0.5
