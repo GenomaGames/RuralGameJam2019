@@ -11,10 +11,9 @@ public class WagonController : MonoBehaviour
     void OnCollisionEnter2D (Collision2D other) {
         PlayerController otherPlayer = other.gameObject.GetComponent<PlayerController>();
 
-        Debug.Log("HIT");
+        // Debug.Log("HIT");
 
-        if (otherPlayer != null) {
-            Debug.Log("STEAL");
+        if (otherPlayer != null && otherPlayer != player) {
             otherPlayer.Steal(player);
         }
     }
