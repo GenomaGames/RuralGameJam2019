@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9014148296053680863}
   - component: {fileID: 1009057517937606967}
   - component: {fileID: 1366686867}
+  - component: {fileID: 3602655887167480709}
   m_Layer: 9
   m_Name: Wagon
   m_TagString: Untagged
@@ -90,6 +91,18 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.3
   m_MaxDistanceOnly: 0
+--- !u!114 &3602655887167480709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530701949108000205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158ed63c8ec94414798f8c61af3afc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2825538132185820710
 GameObject:
   m_ObjectHideFlags: 0

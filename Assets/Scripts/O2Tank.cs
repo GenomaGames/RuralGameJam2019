@@ -21,15 +21,24 @@ public class O2Tank : MonoBehaviour
     }
 
     void FixedUpdate () {
-        if(currentO2 > 0){
-            float o2ToSubtract = Time.deltaTime;
-            currentO2 -= o2ToSubtract;
-        } else {
-            currentO2 = 0;
-        }
+        SubtractO2(Time.fixedDeltaTime);
     }
 
     public void AddO2 (float amount) {
         currentO2 += amount;
+    }
+
+    public float SubtractO2 (float amount) {
+        float lostO2 = 0;
+
+        if (amount > currentO2) {
+            lostO2 = currentO2;
+            currentO2 = 0;
+        } else {
+            lostO2 = amount;
+            currentO2 -= amount;
+        }
+
+        return lostO2;
     }
 }

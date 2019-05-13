@@ -7,17 +7,25 @@ using UnityEngine;
 [RequireComponent(typeof(O2Tank))]
 public class PlayerController : MonoBehaviour
 {
+
+    public float O2 {
+        get {
+            return o2tank.CurrentO2;
+        }
+    }
+
     public bool IsDead {
         get {
-            return o2tank.CurrentO2 <= 0;
+            return O2 <= 0;
         }
     }
 
     public int Score {
         get {
-            return (o2tank.CurrentO2 < 0 ? 0 : (int)Mathf.Floor(o2tank.CurrentO2));
+            return (O2 <= 0 ? 0 : (int)Mathf.Floor(O2));
         }
     }
+
     private Motor motor;
     private Rotor rotor;
     private O2Tank o2tank;
@@ -36,7 +44,17 @@ public class PlayerController : MonoBehaviour
         rotor.rotation = rotation;
     }
 
-    public void Refill (float amount) {
+    public void RefillO2 (float amount) {
         o2tank.AddO2(amount);
+    }
+
+    public float TakeO2 (float amount) {
+        return o2tank.SubtractO2(amount);
+    }
+
+    public void Steal (PlayerController otherPlayer) {
+        // Debug.Log(name + " Steals " + otherPlayer.name);
+        float stolenO2 = otherPlayer.TakeO2(otherPlayer.O2 / 2f);
+        RefillO2(stolenO2);
     }
 }

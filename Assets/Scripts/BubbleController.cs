@@ -18,7 +18,7 @@ public class BubbleController : MonoBehaviour
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
         if (player != null && !player.IsDead) {
-            player.Refill(o2Amount);
+            player.RefillO2(o2Amount);
             Die();
         }
     }
